@@ -9,7 +9,7 @@ namespace PatrocinioZoneProyectoV1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<PatrocinioZoneDataBaseContext>(options =>
+            builder.Services.AddDbContext<PatrocinioZoneDataBaseContext>(options => 
             options.UseSqlServer(builder.Configuration["ConnectionString:PatrocinioZoneDBConnection"])); 
 
             // Add services to the container.
