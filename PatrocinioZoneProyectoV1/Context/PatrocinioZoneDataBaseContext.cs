@@ -18,5 +18,9 @@ namespace PatrocinioZoneProyectoV1.Context
 
         public DbSet<Patrocinador> Patrocinadores { get; set; }
 
+        public DbSet<Club> Clubes { get; set; }
+
+        public DbSet<PatrocinioZoneProyectoV1.Models.Club> Club { get; set; } = default!;
+
     }
 }
