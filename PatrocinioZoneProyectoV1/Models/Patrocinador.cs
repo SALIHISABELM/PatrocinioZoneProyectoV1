@@ -6,6 +6,7 @@ namespace PatrocinioZoneProyectoV1.Models
 {
     public class Patrocinador: Usuario
     {
+        
         public double Presupuesto { get; set; }
 
 

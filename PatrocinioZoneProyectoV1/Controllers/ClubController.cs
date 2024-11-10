@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +22,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Club
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Club.ToListAsync());
+            return View(await _context.Clubes.ToListAsync());
         }
 
         // GET: Club/Details/5
@@ -34,7 +33,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club
+            var club = await _context.Clubes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (club == null)
             {
@@ -55,7 +54,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DeporteFavorito,Id,Nombre,Email,FechaIngreso")] Club club)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Email,FechaIngreso,DeporteFavorito")] Club club)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +73,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club.FindAsync(id);
+            var club = await _context.Clubes.FindAsync(id);
             if (club == null)
             {
                 return NotFound();
@@ -87,7 +86,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DeporteFavorito,Id,Nombre,Email,FechaIngreso")] Club club)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Email,FechaIngreso,DeporteFavorito")] Club club)
         {
             if (id != club.Id)
             {
@@ -125,7 +124,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club
+            var club = await _context.Clubes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (club == null)
             {
@@ -140,10 +139,10 @@ namespace PatrocinioZoneProyectoV1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var club = await _context.Club.FindAsync(id);
+            var club = await _context.Clubes.FindAsync(id);
             if (club != null)
             {
-                _context.Club.Remove(club);
+                _context.Clubes.Remove(club);
             }
 
             await _context.SaveChangesAsync();
@@ -152,7 +151,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
 
         private bool ClubExists(int id)
         {
-            return _context.Club.Any(e => e.Id == id);
+            return _context.Clubes.Any(e => e.Id == id);
         }
     }
 }

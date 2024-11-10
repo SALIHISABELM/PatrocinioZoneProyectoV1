@@ -54,7 +54,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Presupuesto,Id,Nombre,Email,FechaIngreso")] Patrocinador patrocinador)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Email,FechaIngreso,Presupuesto")] Patrocinador patrocinador)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Presupuesto,Id,Nombre,Email,FechaIngreso")] Patrocinador patrocinador)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Email,FechaIngreso,Presupuesto")] Patrocinador patrocinador)
         {
             if (id != patrocinador.Id)
             {

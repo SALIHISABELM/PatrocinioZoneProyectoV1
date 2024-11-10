@@ -20,7 +20,7 @@ namespace PatrocinioZoneProyectoV1.Context
 
         public DbSet<Club> Clubes { get; set; }
 
-        public DbSet<PatrocinioZoneProyectoV1.Models.Club> Club { get; set; } = default!;
+       // public DbSet<PatrocinioZoneProyectoV1.Models.Club> Club { get; set; } = default!;
 
     }
 }
