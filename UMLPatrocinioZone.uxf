@@ -1,0 +1,50 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>430</x><y>30</y><w>210</w><h>140</h></coordinates><panel_attributes>/&lt;&lt;Usuario&gt;&gt;/
+--
+- nombre: String
+- email: String
+- pass: String
+- id: int
+--
+- login()
+- logout()
+- actualizarPerfil()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>250</y><w>210</w><h>130</h></coordinates><panel_attributes>&lt;&lt;Club&gt;&gt;
+--
+
+--
++ publicarOferta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>250</y><w>210</w><h>130</h></coordinates><panel_attributes>&lt;&lt;Patrocinador&gt;&gt;
+--
+- presupuesto: double
+--
+- buscarClubes()
++ hacerOferta()
++ negociar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>160</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;90;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>160</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>450</y><w>80</w><h>110</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+Deporte
+--
+_+FUTBOL_
+_+VOLEY
+_+BASQUET_
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>330</y><w>200</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+- deporte
+m1=1</panel_attributes><additional_attributes>10;120;10;20;180;20</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>370</y><w>230</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+- sponsoreados
+m1=*</panel_attributes><additional_attributes>10;10;10;60;210;60;210;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>470</y><w>210</w><h>130</h></coordinates><panel_attributes>&lt;&lt;ZonaPatrocinio&gt;&gt;
+--
+- tamanio: double
+- estadoReservado: boolean
+--
++ actualizarPrecio()
++ reservar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>370</y><w>70</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+- zonas
+m1=*</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>470</y><w>90</w><h>130</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+Ubicacion
+--
+_+ PECHO_
+_+ ESPALDA_
+_+ BRAZO_
+_+ PANTALON_
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>510</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+ -ubicacion
+m1=1</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element></diagram>
