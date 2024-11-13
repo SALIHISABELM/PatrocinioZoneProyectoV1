@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [PatrocinioZoneDB]    Script Date: 11/6/2024 7:41:19 PM ******/
+/****** Object:  Database [PatrocinioZoneDB]    Script Date: 11/13/2024 5:56:36 PM ******/
 CREATE DATABASE [PatrocinioZoneDB]
  CONTAINMENT = NONE
  ON  PRIMARY 
