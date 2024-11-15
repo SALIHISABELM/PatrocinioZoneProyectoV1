@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PatrocinioZoneProyectoV1.Models.Patrocinador>
+﻿@model IEnumerable<PatrocinioZoneProyectoV1.Models.ZonaPatrocinio>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,16 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.Tamanio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.EstadoReservado)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaIngreso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Presupuesto)
+                @Html.DisplayNameFor(model => model.Ubicacion)
             </th>
             <th></th>
         </tr>
@@ -30,18 +27,14 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.Tamanio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.EstadoReservado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaIngreso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Presupuesto)
+                @Html.DisplayFor(modelItem => item.Ubicacion)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -1,8 +1,62 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome to PatrocinioZone</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<!-- Carrusel de Patrocinadores -->
+<div id="carouselPatrocinadores" class="carousel slide mt-5" data-ride="carousel">
+    <h2 class="text-center">Patrocinadores</h2>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/patrocinador1.jpg" class="d-block w-100" alt="Patrocinador 1">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/patrocinador2.jpg" class="d-block w-100" alt="Patrocinador 2">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/patrocinador3.jpg" class="d-block w-100" alt="Patrocinador 3">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselPatrocinadores" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselPatrocinadores" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+</div>
+
+<!-- Carrusel de Clubes -->
+<div id="carouselClubes" class="carousel slide mt-5" data-ride="carousel">
+    <h2 class="text-center">Clubes</h2>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/club1.jpg" class="d-block w-100" alt="Club 1">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/club2.jpg" class="d-block w-100" alt="Club 2">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/club3.jpg" class="d-block w-100" alt="Club 3">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselClubes" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselClubes" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+</div>
+
