@@ -15,4 +15,19 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\adidas.png" />
+    <None Include="wwwroot\images\afa.png" />
+    <None Include="wwwroot\images\bzrp.png" />
+    <None Include="wwwroot\images\cadda.png" />
+    <None Include="wwwroot\images\colapinto.png" />
+    <None Include="wwwroot\images\espndeportes.png" />
+    <None Include="wwwroot\images\losangeles.png" />
+    <None Include="wwwroot\images\nike.png" />
+  </ItemGroup>
+
 </Project>

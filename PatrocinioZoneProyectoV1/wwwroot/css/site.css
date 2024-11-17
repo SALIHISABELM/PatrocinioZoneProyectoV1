@@ -20,3 +20,21 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.carousel {
+    margin-bottom: 100px; /* Espaciado con el footer */
+}
+
+.carousel-image {
+    width: 100%; /* Ajustar al ancho del carrusel */
+    height: 400px; /* Altura uniforme para todas las imágenes */
+    object-fit: contain; /* Recortar para llenar el contenedor */
+}
+
+footer {
+    background-color: #343a40; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 5px 0; /* Espaciado interno */
+    margin-top: 20px; /* Separación con el carrusel */
+    text-align: center; 
+}
