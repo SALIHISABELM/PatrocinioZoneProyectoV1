@@ -54,7 +54,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,tamanio,estadoReservado,Ubicacion")] ZonaPatrocinio zonaPatrocinio)
+        public async Task<IActionResult> Create([Bind("Id,Tamanio,EstadoReservado,Ubicacion")] ZonaPatrocinio zonaPatrocinio)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,tamanio,estadoReservado,Ubicacion")] ZonaPatrocinio zonaPatrocinio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Tamanio,EstadoReservado,Ubicacion")] ZonaPatrocinio zonaPatrocinio)
         {
             if (id != zonaPatrocinio.Id)
             {

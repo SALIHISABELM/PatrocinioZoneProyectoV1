@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PatrocinioZoneProyectoV1.Context;
 
@@ -11,9 +12,11 @@ using PatrocinioZoneProyectoV1.Context;
 namespace PatrocinioZoneProyectoV1.Migrations
 {
     [DbContext(typeof(PatrocinioZoneDataBaseContext))]
-    partial class PatrocinioZoneDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241118191330_UpdateZonaPatrocinio")]
+    partial class UpdateZonaPatrocinio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,9 +90,8 @@ namespace PatrocinioZoneProyectoV1.Migrations
                     b.Property<bool>("EstadoReservado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Tamanio")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Tamanio")
+                        .HasColumnType("float");
 
                     b.Property<int>("Ubicacion")
                         .HasColumnType("int");

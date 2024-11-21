@@ -18,23 +18,108 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(120deg, #f0f4f8, #d9e8fc);
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 60px;
 }
 
+h1, h2, h3 {
+    font-weight: bold; 
+}
+
+p, a {
+    font-weight: normal; 
+}
+
+
+/* Estilos para el carrusel */
 .carousel {
-    margin-bottom: 100px; /* Espaciado con el footer */
+    margin-bottom: 200px; 
 }
 
 .carousel-image {
-    width: 100%; /* Ajustar al ancho del carrusel */
-    height: 400px; /* Altura uniforme para todas las imágenes */
-    object-fit: contain; /* Recortar para llenar el contenedor */
+    width: 100%; 
+    height: 400px; 
+    object-fit: contain; 
 }
 
-footer {
-    background-color: #343a40; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 5px 0; /* Espaciado interno */
-    margin-top: 20px; /* Separación con el carrusel */
-    text-align: center; 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
 }
+
+
+/* Estilo general del nav */
+.navbar {
+    background-color: black; 
+    color: white;
+}
+
+    /* Estilo para los enlaces del nav */
+    .navbar .nav-link {
+        color: white;
+    }
+
+        /* Hover para los enlaces */
+        .navbar .nav-link:hover {
+            color: #6c757d; 
+            text-decoration: underline; 
+        }
+
+/* Marca (nombre del proyecto) */
+.navbar-brand {
+    color: white;   
+    margin-bottom: 10px;  
+ 
+}
+
+
+    .navbar .ms-auto {
+        
+        margin-left: auto;
+    }
+
+/* Estilos para el footer */
+.footer {
+    margin-top: 0px;
+    background-color: black; /*#f8f9fa*/
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .footer p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: white;/* #6c757d*/
+        text-align: center;
+    }
+   
+/* Estilos para los íconos sociales */
+.social-icon {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icon-elem {
+    display: inline-block;
+}
+
+.icon {
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+    .icon:hover {
+        transform: translateY(-10px);
+    }
