@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PatrocinioZoneProyectoV1.Context;
 
@@ -11,9 +12,11 @@ using PatrocinioZoneProyectoV1.Context;
 namespace PatrocinioZoneProyectoV1.Migrations
 {
     [DbContext(typeof(PatrocinioZoneDataBaseContext))]
-    partial class PatrocinioZoneDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241123175440_SeAgregaClaseOferta")]
+    partial class SeAgregaClaseOferta
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,13 +75,7 @@ namespace PatrocinioZoneProyectoV1.Migrations
 
                     b.HasKey("OfertaId");
 
-                    b.HasIndex("ClubID");
-
-                    b.HasIndex("PatrocinadorID");
-
-                    b.HasIndex("ZonaDePatrocinioID");
-
-                    b.ToTable("Ofertas");
+                    b.ToTable("ofertas");
                 });
 
             modelBuilder.Entity("PatrocinioZoneProyectoV1.Models.Patrocinador", b =>
@@ -131,33 +128,6 @@ namespace PatrocinioZoneProyectoV1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ZonaPatrocinios");
-                });
-
-            modelBuilder.Entity("PatrocinioZoneProyectoV1.Models.Oferta", b =>
-                {
-                    b.HasOne("PatrocinioZoneProyectoV1.Models.Club", "Club")
-                        .WithMany()
-                        .HasForeignKey("ClubID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PatrocinioZoneProyectoV1.Models.Patrocinador", "Patrocinador")
-                        .WithMany()
-                        .HasForeignKey("PatrocinadorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PatrocinioZoneProyectoV1.Models.ZonaPatrocinio", "ZonaDePatrocinio")
-                        .WithMany()
-                        .HasForeignKey("ZonaDePatrocinioID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Club");
-
-                    b.Navigation("Patrocinador");
-
-                    b.Navigation("ZonaDePatrocinio");
                 });
 #pragma warning restore 612, 618
         }

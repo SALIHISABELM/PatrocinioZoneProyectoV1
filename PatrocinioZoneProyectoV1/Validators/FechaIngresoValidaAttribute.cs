@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PatrocinioZoneProyectoV1.Models
+namespace PatrocinioZoneProyectoV1.Validators
 {
     public class FechaIngresoValidaAttribute : ValidationAttribute
     {

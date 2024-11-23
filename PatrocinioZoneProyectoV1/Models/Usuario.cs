@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using PatrocinioZoneProyectoV1.Validators;
 
-    namespace PatrocinioZoneProyectoV1.Models
+namespace PatrocinioZoneProyectoV1.Models
     {
         public class Usuario
         {
@@ -24,8 +25,8 @@ using System.ComponentModel.DataAnnotations;
             [DataType(DataType.Date, ErrorMessage = "Debe ser una Fecha Válida")]
             [FechaIngresoValida(ErrorMessage = "La fecha de ingreso no puede ser una fecha futura.")]
             public DateTime FechaIngreso { get; set; }
+      
 
-        
 
-        }
+    }
     }
