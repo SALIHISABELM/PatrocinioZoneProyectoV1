@@ -22,13 +22,19 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Club
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clubes.ToListAsync());
+            return _context.Clubes != null ?
+                         View(await _context.Clubes.ToListAsync()) :
+                         Problem("Entity set 'PatrocinioZoneDataBaseContext.Patrocinadores'  is null.");
+
+            //Esto es lo que me creó EF
+            //return View(await _context.Clubes.ToListAsync());
         }
 
         // GET: Club/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.Clubes == null
+            if (id == null || _context.Clubes == null)
             {
                 return NotFound();
             }
@@ -68,7 +74,8 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Club/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.Clubes == null
+            if (id == null || _context.Clubes == null)
             {
                 return NotFound();
             }
@@ -119,7 +126,8 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Club/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.Clubes == null
+            if (id == null || _context.Clubes == null)
             {
                 return NotFound();
             }
@@ -151,7 +159,11 @@ namespace PatrocinioZoneProyectoV1.Controllers
 
         private bool ClubExists(int id)
         {
-            return _context.Clubes.Any(e => e.Id == id);
+            //Agregado
+            return (_context.Clubes?.Any(e => e.Id == id)).GetValueOrDefault();
+
+            //Esto estaba con EF
+            //return _context.Clubes.Any(e => e.Id == id);
         }
     }
 }

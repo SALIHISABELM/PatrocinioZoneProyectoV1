@@ -22,21 +22,26 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Oferta
         public async Task<IActionResult> Index()
         {
-            //var PatrocinioZoneDataBaseContext = _context.Ofertas.Include(b => b.Patrocinador);
-            //return View(await PatrocinioZoneDataBaseContext.ToListAsync());
-            return View(await _context.Ofertas.ToListAsync());
+            var PatrocinioZoneDataBaseContext = _context.Ofertas
+                .Include(b => b.Patrocinador)
+                .Include(o => o.Club)
+                .Include(o => o.ZonaDePatrocinio);
+            return View(await PatrocinioZoneDataBaseContext.ToListAsync());
+            //return View(await _context.Ofertas.ToListAsync());
         }
 
         // GET: Oferta/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null /*|| _context.Ofertas == null*/)
+            if (id == null || _context.Ofertas == null)
             {
                 return NotFound();
             }
 
             var oferta = await _context.Ofertas
-                 //.Include(b => b.Patrocinador)
+                 .Include(b => b.Patrocinador)
+                 .Include(o => o.Club)
+                 .Include(o => o.ZonaDePatrocinio)
                 .FirstOrDefaultAsync(m => m.OfertaId == id);
             if (oferta == null)
             {
@@ -49,7 +54,14 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Oferta/Create
         public IActionResult Create()
         {
-            //ViewData["PatrocinadorID"] = new SelectList(_context.Patrocinadores, "PatrocindorID", "Name");
+            var Patrocinadores = _context.Patrocinadores.ToList();
+            var Clubes = _context.Clubes.ToList();
+            var ZonaPatrocinios = _context.ZonaPatrocinios.ToList();
+
+            ViewData["PatrocinadorID"] = new SelectList(Patrocinadores, "Id", "Nombre");
+            ViewData["ClubID"] = new SelectList(Clubes, "Id", "Nombre");
+            ViewData["ZonaPatrocinioId"] = ZonaPatrocinios;
+            //ViewData["ZonaPatrocinioId"] = new SelectList(ZonaPatrocinios, "Id", "Ubicacion");
             return View();
         }
 
@@ -58,8 +70,11 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Create([Bind("OfertaId,PatrocinadorID,Costo,ClubID,ZonaDePatrocinioID")] Oferta oferta)
         {
+            var ZonaPatrocinios = _context.ZonaPatrocinios.ToList();
+
             if (ModelState.IsValid)
             {
                 _context.Add(oferta);
@@ -67,7 +82,10 @@ namespace PatrocinioZoneProyectoV1.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            //ViewData["PatrocinadorID"] = new SelectList(_context.Patrocinadores, "PatrocinadorID", "Name", oferta.PatrocinadorID);
+            ViewData["PatrocinadorID"] = new SelectList(_context.Patrocinadores, "Id", "Nombre", oferta.PatrocinadorID);
+            ViewData["ClubID"] = new SelectList(_context.Clubes, "Id", "Nombre", oferta.ClubID);
+            ViewData["ZonaPatrocinioId"] = ZonaPatrocinios;
+            //ViewData["ZonaPatrocinioID"] = new SelectList(_context.ZonaPatrocinios, "Id", "Ubicacion", oferta.ZonaDePatrocinioID);
             return View(oferta);
         }
 
@@ -92,8 +110,11 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("OfertaId,PatrocinadorID,Costo,ClubID,ZonaDePatrocinioID")] Oferta oferta)
         {
+            var ZonaPatrocinios = _context.ZonaPatrocinios.ToList();
+
             if (id != oferta.OfertaId)
             {
                 return NotFound();
@@ -119,6 +140,10 @@ namespace PatrocinioZoneProyectoV1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PatrocinadorID"] = new SelectList(_context.Patrocinadores, "Id", "Nombre", oferta.PatrocinadorID);
+            ViewData["ClubID"] = new SelectList(_context.Clubes, "Id", "Nombre", oferta.ClubID);
+            ViewData["ZonaPatrocinioId"] = ZonaPatrocinios;
+            //ViewData["ZonaPatrocinioID"] = new SelectList(_context.ZonaPatrocinios, "Id", "Ubicacion", oferta.ZonaDePatrocinioID);
             return View(oferta);
         }
 

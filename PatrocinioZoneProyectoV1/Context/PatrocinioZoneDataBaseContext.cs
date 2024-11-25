@@ -31,7 +31,7 @@ namespace PatrocinioZoneProyectoV1.Context
 
 
 
-        // public DbSet<PatrocinioZoneProyectoV1.Models.Club> Club { get; set; } = default!;
+
 
     }
 }

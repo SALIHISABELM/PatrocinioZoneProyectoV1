@@ -22,13 +22,21 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Patrocinador
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Patrocinadores.ToListAsync());
+            //Esto es para que tome la lista
+            return _context.Patrocinadores != null ?
+                         View(await _context.Patrocinadores.ToListAsync()) :
+                         Problem("Entity set 'PatrocinioZoneDataBaseContext.Patrocinadores'  is null.");
+
+            //Esto es lo que me creó EF
+            //return View(await _context.Patrocinadores.ToListAsync());
         }
 
         // GET: Patrocinador/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+
+            //Esto lo agregamos || _context.Patrocinadores == null
+            if (id == null || _context.Patrocinadores == null)
             {
                 return NotFound();
             }
@@ -68,7 +76,8 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Patrocinador/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.Patrocinadores == null
+            if (id == null || _context.Patrocinadores == null)
             {
                 return NotFound();
             }
@@ -119,9 +128,10 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: Patrocinador/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.Patrocinadores == null
+            if (id == null || _context.Patrocinadores == null)
             {
-                return NotFound();
+               return NotFound();
             }
 
             var patrocinador = await _context.Patrocinadores
@@ -151,7 +161,11 @@ namespace PatrocinioZoneProyectoV1.Controllers
 
         private bool PatrocinadorExists(int id)
         {
-            return _context.Patrocinadores.Any(e => e.Id == id);
+            //Agregado
+            return (_context.Patrocinadores?.Any(e => e.Id == id)).GetValueOrDefault();
+
+            //Esto estaba con EF
+            //return _context.Patrocinadores.Any(e => e.Id == id);
         }
     }
 }

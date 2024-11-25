@@ -1,20 +1,20 @@
 ﻿@model PatrocinioZoneProyectoV1.Models.Oferta
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h1>Details</h1>
+<h1 class="display-5">Detalles</h1>
 
 <div>
     <h4>Oferta</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PatrocinadorID)
+            @Html.DisplayNameFor(model => model.Patrocinador)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PatrocinadorID)
+            @Html.DisplayFor(model => model.Patrocinador.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Costo)
@@ -23,20 +23,20 @@
             @Html.DisplayFor(model => model.Costo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClubID)
+            @Html.DisplayNameFor(model => model.Club)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClubID)
+            @Html.DisplayFor(model => model.Club.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ZonaDePatrocinioID)
+            @Html.DisplayNameFor(model => model.ZonaDePatrocinio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ZonaDePatrocinioID)
+            @Html.DisplayFor(model => model.ZonaDePatrocinio.Id)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.OfertaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.OfertaId">Editar</a> |
+    <a asp-action="Index">Volver</a>
 </div>

@@ -22,13 +22,20 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: ZonaPatrocinio
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ZonaPatrocinios.ToListAsync());
+            //Esto es para que tome la lista
+            return _context.ZonaPatrocinios != null ?
+                         View(await _context.ZonaPatrocinios.ToListAsync()) :
+                         Problem("Entity set 'PatrocinioZoneDataBaseContext.Patrocinadores'  is null.");
+
+            //Esto es lo que me creó EF
+            //return View(await _context.ZonaPatrocinios.ToListAsync());
         }
 
         // GET: ZonaPatrocinio/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.ZonaPatrocinios == null
+            if (id == null || _context.ZonaPatrocinios == null)
             {
                 return NotFound();
             }
@@ -68,7 +75,8 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: ZonaPatrocinio/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.ZonaPatrocinios == null
+            if (id == null || _context.ZonaPatrocinios == null)
             {
                 return NotFound();
             }
@@ -119,7 +127,8 @@ namespace PatrocinioZoneProyectoV1.Controllers
         // GET: ZonaPatrocinio/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            //Esto lo agregamos || _context.ZonaPatrocinios == null
+            if (id == null || _context.ZonaPatrocinios == null)
             {
                 return NotFound();
             }
@@ -151,7 +160,11 @@ namespace PatrocinioZoneProyectoV1.Controllers
 
         private bool ZonaPatrocinioExists(int id)
         {
-            return _context.ZonaPatrocinios.Any(e => e.Id == id);
+            //Agregado
+            return (_context.ZonaPatrocinios?.Any(e => e.Id == id)).GetValueOrDefault();
+
+            //Esto estaba con EF
+            //return _context.ZonaPatrocinios.Any(e => e.Id == id);
         }
     }
 }
