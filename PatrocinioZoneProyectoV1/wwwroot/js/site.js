@@ -3,10 +3,10 @@
 
 // Write your JavaScript code.
 
-<script>
-    document.querySelector('form').addEventListener('submit', function (e) {
-        const zonaSelect = document.getElementById('ZonaPatrocinio');
-    if (zonaSelect && !zonaSelect.value) {
+document.getElementById("myForm").addEventListener("submit", function (event) {
+    var selectedRadio = document.querySelector('input[name="ZonaDePatrocinioID"]:checked');
+    if (!selectedRadio) {
+        event.preventDefault(); // Previene el envío del formulario
         e.preventDefault();
     alert("Por favor, seleccione una zona de patrocinio.");
     zonaSelect.focus();
